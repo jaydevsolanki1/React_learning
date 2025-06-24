@@ -1,16 +1,15 @@
-import Details from "./Details";
-import Fotter from "./Fotter";
-import Header from "./Header";
-import CardWrapper from "./card/Card.wrapper";
-import UserDetails from "./studentUser/UserDetails";
-
+import CardWrapper from "./Component/card/Card.wrapper";
+import Fotter from "./Component/Fotter/Fotter";
+import Header from "./Component/Header/Header";
+import Details from "./Component/Main/Details_Main";
+import UserDetails from "./Component/studentUser/UserDetails";
 
 function App() {
   return (
     <>
       <Header />
       <Details />
-      <CardWrapper /> 
+      <CardWrapper />
       <UserDetails />
       <Fotter />
     </>

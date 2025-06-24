@@ -1,5 +1,4 @@
-// If in src/assets/
-import img from "../assets/react.svg";
+import img from "../../assets/react.svg"; 
 
 
 function Card() {
@@ -27,3 +26,4 @@ function Card() {
 }
 
 export default Card;
+
