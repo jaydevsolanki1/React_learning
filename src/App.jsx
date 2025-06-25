@@ -1,8 +1,9 @@
 import CardWrapper from "./Component/card/Card.wrapper";
 import Fotter from "./Component/Fotter/Fotter";
 import Header from "./Component/Header/Header";
+import List from "./Component/List/List";
 import Details from "./Component/Main/Details_Main";
-import UserDetails from "./Component/studentUser/UserDetails";
+import UserDetails from "./Component/StudentUser/UserDetails";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Details />
       <CardWrapper />
       <UserDetails />
+      <List/>
       <Fotter />
     </>
   );

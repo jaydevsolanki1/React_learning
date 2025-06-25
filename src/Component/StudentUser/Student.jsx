@@ -10,15 +10,18 @@ function Student(props) {
 
   return (
     <>
-      <div className="bg-light p-3 m-2 text-start rounded-5 shadow-lg bg-light">
-        <span>UserName : {user}</span>
-        <br />
-        <span>Age : {age}</span>
-        <br />
-        <span>Gender : {gender}</span>
-        <br />
-        <span>isfollowing : {isfollowing ? "yes" : "no"}</span>
-        <br />
+      <div className=" bg-light p-3 m-2 text-start rounded-5 shadow-lg bg-light" style={{ minWidth: "300px" }}>
+        <div > 
+          {" "}
+          <span>UserName : {user}</span>
+          <br />
+          <span>Age : {age}</span>
+          <br />
+          <span>Gender : {gender}</span>
+          <br />
+          <span>isfollowing : {isfollowing ? "yes" : "no"}</span>
+          <br />
+        </div>
       </div>
     </>
   );
@@ -81,7 +84,7 @@ export function AnotherGreeting(props) {
 }
 
 AnotherGreeting.defaultProps = {
-  ifloggin :false,
+  ifloggin: false,
   loginUser: "Guest",
 };
 

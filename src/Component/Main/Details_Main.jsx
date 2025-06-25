@@ -5,10 +5,9 @@ function Details() {
   }
   return (
     <>
-      <div className="details container mx-auto p-4">
-        <hr />
-        <h2 className="text-center">Details</h2>
+      <div className="details container mx-auto p-4 mt-5 mb-5 rounded-4 shadow-lg" style={{ backgroundColor: "#f8f9fa"   }}>
         <p>
+        <h2 className="text-center">Details</h2>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint
           eligendi voluptate, aliquam mollitia voluptatem magni at illum
           assumenda nisi. Maxime eum libero provident et quisquam aut aperiam
