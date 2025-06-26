@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import "./Header.css"; // Make sure this file exists and is linked
+import React, { useState, useEffect, useRef } from "react";
+import "./Header.css";
 
 function Header({ mode, setMode }) {
   const [search, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const titleRef = useRef(null);
+  const formRef = useRef(null);
 
   const data = [
     "Home",
@@ -21,6 +23,16 @@ function Header({ mode, setMode }) {
   useEffect(() => {
     document.body.className =
       mode === "dark" ? "bg-dark text-light" : "bg-light text-dark";
+
+    const reTrigger = (el, animation) => {
+      if (!el) return;
+      el.classList.remove(animation);
+      void el.offsetWidth;
+      el.classList.add(animation);
+    };
+
+    reTrigger(titleRef.current, "animate__fadeInRight");
+    reTrigger(formRef.current, "animate__fadeInDown");
   }, [mode]);
 
   const handleChange = (e) => {
@@ -43,11 +55,12 @@ function Header({ mode, setMode }) {
   const toggleMode = () => {
     setMode((prev) => (prev === "light" ? "dark" : "light"));
   };
-const navClass = `navbar fixed-top ${
-  mode === "dark"
-    ? "bg-dark text-light navbar-dark"
-    : "bg-body-tertiary text-dark navbar-light"
-}`;
+
+  const navClass = `navbar fixed-top ${
+    mode === "dark"
+      ? "bg-dark text-light navbar-dark"
+      : "bg-body-tertiary text-dark navbar-light"
+  }`;
 
   const offcanvasClass = `offcanvas offcanvas-end ${
     mode === "dark" ? "bg-dark text-light" : "bg-body-tertiary text-dark"
@@ -57,10 +70,9 @@ const navClass = `navbar fixed-top ${
   }`;
   const btnClass = `btn ${
     mode === "dark"
-      ? "btn-outline-light border-light "
+      ? "btn-outline-light border-light"
       : "btn-outline-dark border-dark"
   } animate__animated animate__pulse animate__infinite`;
-  
 
   return (
     <>
@@ -77,6 +89,7 @@ const navClass = `navbar fixed-top ${
               }`}
             />
             <span
+              ref={titleRef}
               className={`fw-bold fs-4 animate__animated animate__fadeInRight ${
                 mode === "dark" ? "text-warning" : "text-dark"
               }`}
@@ -84,12 +97,14 @@ const navClass = `navbar fixed-top ${
               A$CE
             </span>
           </a>
+
           <form
+            ref={formRef}
             className="d-flex mx-auto my-2 w-50 position-relative animate__animated animate__fadeInDown"
             role="search"
           >
             <input
-              className={`form-control  ${inputClass} ${
+              className={`form-control ${inputClass} ${
                 mode === "dark" ? "input-dark" : "input-light"
               }`}
               type="search"
@@ -136,7 +151,6 @@ const navClass = `navbar fixed-top ${
             )}
           </form>
 
-          {/* ✅ Fixed Toggle Button */}
           <button
             className={`navbar-toggler ${btnClass} animate__animated animate__pulse animate__infinite ${
               mode === "dark"
@@ -154,7 +168,6 @@ const navClass = `navbar fixed-top ${
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Theme toggle button */}
           <button
             className={`btn ms-2 ${mode === "dark" ? "btn-dark" : "btn-light"}`}
             onClick={toggleMode}
@@ -211,7 +224,6 @@ const navClass = `navbar fixed-top ${
         </div>
       </div>
 
-      {/* Animate.css CDN */}
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
