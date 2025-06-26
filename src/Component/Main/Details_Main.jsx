@@ -5,9 +5,9 @@ function Details() {
   }
   return (
     <>
-      <div className="details container mx-auto p-4 mt-5 mb-5 rounded-4 shadow-lg" style={{ backgroundColor: "#f8f9fa"   }}>
+      <div className="details container mx-auto p-4 mt-5 mb-5 rounded-4 shadow-lg">
         <p>
-        <h2 className="text-center">Details</h2>
+          <h2 className="text-center mt-3">Details</h2>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint
           eligendi voluptate, aliquam mollitia voluptatem magni at illum
           assumenda nisi. Maxime eum libero provident et quisquam aut aperiam
@@ -21,8 +21,8 @@ function Details() {
           esse eaque, deserunt voluptates fugiat adipisci reprehenderit
           necessitatibus! A laboriosam excepturi architecto laudantium?
         </p>
-        {newFunction()}
         <hr />
+        {newFunction()}
       </div>
     </>
   );
@@ -30,7 +30,7 @@ function Details() {
   function newFunction() {
     return (
       <ul
-        className="d-flex gap-5 list-unstyled justify-content-center align-items-center"
+        className="d-flex flex-wrap gap-5 list-unstyled justify-content-center align-items-center"
         id="list "
       >
         <li>Apple</li>
