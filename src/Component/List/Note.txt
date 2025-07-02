@@ -1,0 +1,176 @@
+// import React, { useState, useEffect } from "react";
+
+// function List() {
+//   const initialFruits = [
+//     "Apple",
+//     "Banana",
+//     "Date",
+//     "Elderberry",
+//     "Grape",
+//     "Cherry",
+//     "Fig",
+//   ];
+
+//   const fruitObjects = [
+//     { name: "Apple", calory: 52 },
+//     { name: "Cherry", calory: 63 },
+//     { name: "Elderberry", calory: 73 },
+//     { name: "Banana", calory: 89 },
+//     { name: "Date", calory: 282 },
+//     { name: "Fig", calory: 74 },
+//     { name: "Grape", calory: 69 },
+//   ];
+
+//   const [fruits, setFruits] = useState(initialFruits);
+//   const [sortedFruits, setSortedFruits] = useState([]);
+//   const [reverseSortedFruits, setReverseSortedFruits] = useState([]);
+//   const [sortedFruitsWithIndex, setSortedFruitsWithIndex] = useState([]);
+//   const [reverseSortedFruitsWithIndex, setReverseSortedFruitsWithIndex] =
+//     useState([]);
+//   const [sortedObjByName, setSortedObjByName] = useState([]);
+//   const [sortedObjByCalory, setSortedObjByCalory] = useState([]);
+
+//   // Utility functions
+//   const sortArray = (arr) => [...arr].sort((a, b) => a.localeCompare(b));
+//   const sortArrayReverse = (arr) => [...arr].sort((a, b) => b.localeCompare(a));
+//   const addIndex = (arr) => arr.map((item, index) => `${index + 1}. ${item}`);
+//   const addReverseIndex = (arr) =>
+//     arr.map((item, index) => `${arr.length - index}. ${item}`);
+
+//   // Update all derived values when fruits change
+//   useEffect(() => {
+//     const sorted = sortArray(fruits);
+//     const reversed = sortArrayReverse(fruits);
+
+//     setSortedFruits(sorted);
+//     setReverseSortedFruits(reversed);
+//     setSortedFruitsWithIndex(addIndex(sorted));
+//     setReverseSortedFruitsWithIndex(addReverseIndex(reversed));
+
+//     setSortedObjByName([...fruitObjects].sort((a, b) => a.name.localeCompare(b.name)));
+//     setSortedObjByCalory([...fruitObjects].sort((a, b) => a.calory - b.calory));
+//   }, [fruits]);
+
+//   const handleUpdateFruits = () => {
+//     const updated = [...fruits];
+//     updated.pop();
+//     updated.push("Orange");
+//     setFruits(updated);
+//   };
+
+//   return (
+//     <>
+//       <div className="container py-4 rounded-4">
+//         <h2 className="text-center fs-1 mb-4">Fruits List</h2>
+//         <p className="text-center mb-4">
+//           Array:
+//           {fruits.map((fruit) => (
+//             <span key={fruit}> - {fruit} &nbsp;</span>
+//           ))}
+//         </p>
+//         <div className="text-center mb-5">
+//           <button className="btn btn-primary" onClick={handleUpdateFruits}>
+//             Pop & Push "Orange"
+//           </button>
+//         </div>
+
+//         <div className="row">
+//           <div className="col-12 col-md-6 col-lg-3 mb-4">
+//             <div className="p-3 border rounded-4 shadow-sm h-100">
+//               <h5 className="text-center">Sorted List</h5>
+//               <hr />
+//               <ul>
+//                 {sortedFruits.map((fruit) => (
+//                   <li key={fruit}>{fruit}</li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+
+//           <div className="col-12 col-md-6 col-lg-3 mb-4">
+//             <div className="p-3 border rounded-4 shadow-sm h-100">
+//               <h5 className="text-center">Reverse Sorted</h5>
+//               <hr />
+//               <ul>
+//                 {reverseSortedFruits.map((fruit) => (
+//                   <li key={fruit}>{fruit}</li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+
+//           <div className="col-12 col-md-6 col-lg-3 mb-4">
+//             <div className="p-3 border rounded-4 shadow-sm h-100">
+//               <h5 className="text-center">Sorted with Index</h5>
+//               <hr />
+//               <ul>
+//                 {sortedFruitsWithIndex.map((fruit, index) => (
+//                   <li key={index}>{fruit}</li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+
+//           <div className="col-12 col-md-6 col-lg-3 mb-4">
+//             <div className="p-3 border rounded-4 shadow-sm h-100">
+//               <h5 className="text-center">Reverse with Index</h5>
+//               <hr />
+//               <ul>
+//                 {reverseSortedFruitsWithIndex.map((fruit, index) => (
+//                   <li key={index}>{fruit}</li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <hr />
+
+//       <p className="text-center">
+//         Object List:
+//         {fruitObjects.map((fruit) => (
+//           <span key={fruit.name}>
+//             &nbsp; - {fruit.name} [cal-{fruit.calory}] &nbsp;
+//           </span>
+//         ))}
+//       </p>
+
+//       <div className="container d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 py-4">
+//         <div className="col-12 col-md-6 col-lg-3 mb-4">
+//           <div className="p-3 border rounded-4 shadow-sm h-100">
+//             <h5 className="text-center">Sorted List (object)</h5>
+//             <hr />
+//             <ul>
+//               {sortedObjByName.map((fruit) => (
+//                 <li key={fruit.name}>
+//                   {fruit.name} [cal-{fruit.calory}]
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//         </div>
+
+//         <div className="col-12 col-md-6 col-lg-3 mb-4">
+//           <div className="p-3 border rounded-4 shadow-sm h-100">
+//             <h5 className="text-center">Sorted by Calory</h5>
+//             <hr />
+//             <ul>
+//               {sortedObjByCalory.map((fruit) => (
+//                 <li key={fruit.name}>
+//                   {fruit.name} [cal-{fruit.calory}]
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default List;
+
+
+
+// //this is Demo code is for learning purpose only.  (Use state, useEffect, map, sort, reverse, index, object, array)

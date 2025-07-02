@@ -6,7 +6,7 @@ function CardWrapper({ mode = "light" }) {
     <>
       <div className={`container ${bgClass} py-4 rounded-4 d-`}>
         <h2 className="text-center fs-1 ">Cards</h2>
-        <div className=" d-flex flex-wrap justify-content-center align-items-center">
+        <div className=" d-flex flex-wrap justify-content-center align-items-center ">
 
                     <Card mode={mode} />
                     <Card mode={mode} />

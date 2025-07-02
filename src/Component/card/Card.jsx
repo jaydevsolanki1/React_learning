@@ -21,7 +21,7 @@ function Card({ mode = "light" }) {
         />
         <h2>Card Component</h2>
         <p>This is a simple card component.</p>
-        <a href="/more" className="btn" style={styles}>More &gt;&gt;</a>
+        <a href="/more" className="btn border-bottom" style={styles}>More &gt;&gt;</a>
       </div>
     </div>
   );
