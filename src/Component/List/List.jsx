@@ -60,7 +60,7 @@ function List() {
   );
 
   const maixmumCalory = Math.max(...FruitsObj.map((fruit) => fruit.calory));
-  console.log(`Maximum Calory: ${maixmumCalory}`);
+  // console.log(`Maximum Calory: ${maixmumCalory}`);
   // only one maximum calory fruit
 
   return (

@@ -7,6 +7,7 @@ import Fotter from "./Component/Fotter/Fotter";
 import UserGrettingWrap from "./Component/Gretting/UserGrettingWrap";
 import AnotherGreetingWrap from "./Component/Gretting/AnotherGrettingWrap";
 import UserDetailsWrap from "./Component/StudentUser/UserDetailsWrap";
+import Button from "./Component/Button/Button";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -28,6 +29,7 @@ function App() {
       <UserGrettingWrap mode={mode} />
       <AnotherGreetingWrap mode={mode} />
       <List mode={mode} />
+      <Button mode={mode} />
       <Fotter mode={mode} />
     </>
   );
