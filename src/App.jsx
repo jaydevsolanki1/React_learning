@@ -9,6 +9,7 @@ import List from "./Component/List/List";
 import Button from "./Component/Button/Button";
 import UseState from "./Component/UseState/Usestate";
 import Fotter from "./Component/Fotter/Fotter";
+import OnChange from "./Component/OnChange/OnChange";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -31,7 +32,8 @@ function App() {
       <AnotherGreetingWrap mode={mode} />
       <List mode={mode} />
       <Button mode={mode} />
-      <UseState mode ={mode}/>
+      <UseState mode={mode} />
+      <OnChange mode={mode} />
       <Fotter mode={mode} />
     </>
   );
