@@ -90,6 +90,7 @@ function Button() {
           {/* ✅ Conditional image rendering */}
         </div>
       </div>
+      <br /><hr />
     </>
   );
 }
