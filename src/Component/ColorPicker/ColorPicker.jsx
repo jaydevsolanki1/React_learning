@@ -25,29 +25,33 @@ function ColorPicker({ mode }) {
   const selectedColorTextClass = getTextColorClass(color);
 
   return (
-    <div className={`container-fluid  p-4 `}>
-      <h1 className="text-center mb-4">Color Picker</h1>
+    <>
+      <div className={`container-fluid  p-4 `}>
+        <h1 className="text-center mb-4">Color Picker</h1>
 
-      <div
-        className={`p-3 rounded mb-3 text-center fw-bold ${selectedColorTextClass} border border-1 border-dark`}
-        style={{ backgroundColor: color }}
-      >
-        Selected Color: {color}
-      </div>
+        <div
+          className={`p-3 rounded mb-3 text-center fw-bold ${selectedColorTextClass} border border-1 border-dark`}
+          style={{ backgroundColor: color }}
+        >
+          Selected Color: {color}
+        </div>
 
-      <div className="d-flex align-items-center justify-content-center gap-3 fs-4">
-        <label htmlFor="colorPicker" className="form-label mb-0">
-          Select a Color:
-        </label>
-        <input
-          type="color"
-          id="colorPicker"
-          className="form-control form-control-color "
-          onChange={handleColorChange}
-          value={color}
-        />
+        <div className="d-flex align-items-center justify-content-center gap-3 fs-4">
+          <label htmlFor="colorPicker" className="form-label mb-0">
+            Select a Color:
+          </label>
+          <input
+            type="color"
+            id="colorPicker"
+            className="form-control form-control-color "
+            onChange={handleColorChange}
+            value={color}
+          />
+        </div>
       </div>
-    </div>
+      <br />
+      <hr />
+    </>
   );
 }
 

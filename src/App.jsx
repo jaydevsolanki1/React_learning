@@ -11,6 +11,7 @@ import UseState from "./Component/UseState/Usestate";
 import Fotter from "./Component/Fotter/Fotter";
 import OnChange from "./Component/OnChange/OnChange";
 import ColorPicker from "./Component/ColorPicker/ColorPicker";
+import UpdaterFunction from "./Component/UpdaterFunction/UpdaterFunction";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -35,9 +36,9 @@ function App() {
       <Button mode={mode} />
       <UseState mode={mode} />
       <OnChange mode={mode} />
-      <ColorPicker  mode={mode} />
+      <ColorPicker mode={mode} />
+      <UpdaterFunction mode={mode} />
       <Fotter mode={mode} />
-       
     </>
   );
 }
