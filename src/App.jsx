@@ -12,6 +12,7 @@ import Fotter from "./Component/Fotter/Fotter";
 import OnChange from "./Component/OnChange/OnChange";
 import ColorPicker from "./Component/ColorPicker/ColorPicker";
 import UpdaterFunction from "./Component/UpdaterFunction/UpdaterFunction";
+import ObjectState from "./Component/ObjectWithState/ObjectState";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -38,6 +39,7 @@ function App() {
       <OnChange mode={mode} />
       <ColorPicker mode={mode} />
       <UpdaterFunction mode={mode} />
+      <ObjectState mode={mode} />
       <Fotter mode={mode} />
     </>
   );
