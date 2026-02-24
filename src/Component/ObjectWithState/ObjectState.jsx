@@ -98,5 +98,5 @@ function ObjectState() {
     </>
   );
 }
-
+// this is use of object state in react and how to update it using spread operator and also how to loop over object using Object.entries() method
 export default ObjectState;
