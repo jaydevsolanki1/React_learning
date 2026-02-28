@@ -30,6 +30,8 @@ function ObjectState() {
 
   return (
     <>
+    <div>
+
       <div>
         <h1 className="text-center">Object with State</h1>
       </div>
@@ -62,7 +64,7 @@ function ObjectState() {
             type="text"
             placeholder="Company"
             style={{ width: "150px" }}
-          />
+            />
 
           <input
             name="Color"
@@ -72,7 +74,7 @@ function ObjectState() {
             type="text"
             placeholder="Color"
             style={{ width: "150px" }}
-          />
+            />
 
           <input
             name="Year"
@@ -82,7 +84,7 @@ function ObjectState() {
             type="number"
             placeholder="Year"
             style={{ width: "150px" }}
-          />
+            />
 
           <input
             name="Model"
@@ -92,8 +94,11 @@ function ObjectState() {
             type="number"
             placeholder="Model"
             style={{ width: "150px" }}
-          />
+            />
         </div>
+            </div>
+        <br />
+        <hr />
       </div>
     </>
   );
