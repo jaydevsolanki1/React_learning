@@ -14,6 +14,8 @@ import ColorPicker from "./Component/ColorPicker/ColorPicker";
 import UpdaterFunction from "./Component/UpdaterFunction/UpdaterFunction";
 import ObjectState from "./Component/ObjectWithState/ObjectState";
 import Todolist from "./Component/ArrayWithState/toDolist";
+import ArrayOfObjectState from "./Component/ArrayWithObject/ArrayOfObjectState";
+import ArrayOfObjectState2 from "./Component/ArrayWithObject/AdvancedCode";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -21,7 +23,7 @@ function App() {
   // ✅ Detect system mode on first render
   useEffect(() => {
     const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
     setMode(prefersDark ? "dark" : "light");
   }, []);
@@ -41,7 +43,9 @@ function App() {
       <ColorPicker mode={mode} />
       <UpdaterFunction mode={mode} />
       <ObjectState mode={mode} />
-      <Todolist mode={mode}/>
+      <Todolist mode={mode} />
+      <ArrayOfObjectState mode={mode} />
+      <ArrayOfObjectState2 mode={mode} />
       <Fotter mode={mode} />
     </>
   );
