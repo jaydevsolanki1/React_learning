@@ -16,6 +16,7 @@ import ObjectState from "./Component/ObjectWithState/ObjectState";
 import Todolist from "./Component/ArrayWithState/toDolist";
 import ArrayOfObjectState from "./Component/ArrayWithObject/ArrayOfObjectState";
 import ArrayOfObjectState2 from "./Component/ArrayWithObject/AdvancedCode";
+import ToDoList2 from "./Component/TodoList/ToDoList2";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -46,6 +47,7 @@ function App() {
       <Todolist mode={mode} />
       <ArrayOfObjectState mode={mode} />
       <ArrayOfObjectState2 mode={mode} />
+      <ToDoList2 mode={mode}/>
       <Fotter mode={mode} />
     </>
   );
