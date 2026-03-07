@@ -54,4 +54,4 @@ function App() {
 }
 
 export default App;
-// Cheack Git Hub code cheack when code is another source like another pc to this pc run
+// Cheack Git Hub code cheack when code is another source like another pc to this pc run.
