@@ -1,0 +1,12 @@
+.clock-section img {
+  filter: blur(5px); /* Background blur */
+}
+
+.clock-text {
+  font-size: 3rem; /* Large font */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  z-index: 10;
+}
