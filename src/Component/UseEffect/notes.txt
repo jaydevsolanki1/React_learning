@@ -1,0 +1,146 @@
+-----------------------
+! USE EFFECT ()
+-----------------------
+
+This hook tells React to run some code when one of these happens:
+
+1. The component re-renders
+2. The component mounts (first render)
+3. A specific state value changes
+
+
+Syntax
+
+useEffect(function, [dependencies])
+
+
+Examples
+
+1. useEffect(() => {})
+   Runs after every re-render.
+
+2. useEffect(() => {}, [])
+   Runs only once when the component first mounts.
+
+3. useEffect(() => {}, [value])
+   Runs when the component mounts and whenever the specified value changes.
+
+
+
+Todo: Where useEffect is Used (List)
+
+1. API Data Fetching
+   Load data from a server when the component loads.
+
+2. Updating Browser Title
+   Change the browser tab title dynamically.
+
+3. Timer / Clock / Countdown
+   Run intervals or timers.
+
+4. Event Listeners
+   Listen for events such as:
+   - Window resize
+   - Scroll
+   - Keyboard press
+
+5. Local Storage / Session Storage
+   Save or load data from the browser storage.
+
+6. Form Validation After Input Change
+   Run validation when form state changes.
+
+7. Authentication Check
+   Check if the user is logged in when the page opens.
+
+8. Real-time Updates / Polling
+   Fetch new data repeatedly.
+
+9. Third-Party Library Initialization
+   Initialize charts, maps, or plugins.
+
+10. Cleanup Tasks
+    Remove timers or event listeners when the component unmounts.
+
+
+
+Flow of useEffect
+
+Component Start
+      ↓
+Mount (first render)
+      ↓
+useEffect runs
+      ↓
+Component updates (if state changes)
+      ↓
+Unmount (component removed)
+      ↓
+Cleanup function runs
+
+
+
+-------------------------------------------
+! Random Color Logic
+-------------------------------------------
+
+"#" + Math.floor(Math.random() * 16777215).toString(16)
+
+
+
+Explanation
+
+Math.random()
+Returns a random number between 0 and 1.
+
+16777215
+This is the maximum hexadecimal color value (FFFFFF).
+
+.toString(16)
+Converts a number into a hexadecimal (base 16) string.
+
+
+
+Problem Without padStart
+--------------------------->>>>>>>>>
+
+Sometimes the hexadecimal result is less than 6 characters.
+
+Example:
+
+(10).toString(16)
+
+Result:
+a
+
+But a valid color must contain 6 digits.
+------------------------------------------>>>>>>>>>
+
+Correct color format:
+
+#00000a
+
+Without padding the result would be:
+
+#a   (invalid color)
+
+
+
+What .padStart(6, "0") Does
+
+.padStart(6, "0") ensures that the hex value always has 6 characters by adding zeros at the beginning.
+
+Examples
+
+Value     | Result
+----------------------
+a         | 00000a
+1f3       | 0001f3
+ff23a     | 0ff23a
+
+
+Final valid colors
+
+#00000a
+#0001f3
+#0ff23a
