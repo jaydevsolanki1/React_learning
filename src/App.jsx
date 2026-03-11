@@ -19,6 +19,7 @@ import ArrayOfObjectState2 from "./Component/ArrayWithObject/AdvancedCode";
 import ToDoList2 from "./Component/TodoList/ToDoList2";
 import Use_Effect from "./Component/UseEffect/Use_Effect";
 import Clock from "./Component/DigitalClock/clock";
+import UseContext from "./Component/UseContext/UseContext";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -52,6 +53,7 @@ function App() {
       <ToDoList2 mode={mode} />
       <Use_Effect mode={mode} />
       <Clock mode={mode} />
+      <UseContext mode={mode}/>
       <Fotter mode={mode} />
     </>
   );
