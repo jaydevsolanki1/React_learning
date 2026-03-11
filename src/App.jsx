@@ -21,6 +21,7 @@ import Use_Effect from "./Component/UseEffect/Use_Effect";
 import Clock from "./Component/DigitalClock/clock";
 import UseContext from "./Component/UseContext/UseContext";
 import UserRef from "./Component/UseRef/UserRef";
+import DigitalStopWatch from "./Component/StopWatch/DigitalStopWatch";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -56,6 +57,7 @@ function App() {
       <Clock mode={mode} />
       <UseContext mode={mode} />
       <UserRef mode={mode} />
+      <DigitalStopWatch mode={mode} />
       <Fotter mode={mode} />
     </>
   );
