@@ -21,10 +21,10 @@ const user = useContext(UserContext);
 
   return (
     <div>
-      <p className="fs-3 border-2 border border-dark bg-light text-dark p-3 rounded pb-5 ">
+      <div className="fs-3 border-2 border border-dark bg-light text-dark p-3 rounded pb-5 ">
         Component4
         <h3>Bye User : {`${user}`}</h3>
-      </p>
+      </div>
     </div>
   );
 }

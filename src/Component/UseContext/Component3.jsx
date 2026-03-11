@@ -19,11 +19,11 @@ function Component3() {
   const user = useContext(UserContext);
   return (
     <div>
-      <p className="fs-3 border-2 border border-dark bg-light text-dark p-3 pb-5 rounded">
+      <div className="fs-3 border-2 border border-dark bg-light text-dark p-3 pb-5 rounded">
         Component3
         {/* <h2>C-3 {`user :${user}`}</h2> */}
         <Component4 />
-      </p>
+      </div>
     </div>
   );
 }
