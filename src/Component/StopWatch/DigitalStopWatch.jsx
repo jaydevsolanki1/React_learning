@@ -49,18 +49,18 @@ function DigitalStopWatch() {
     // const seconds = String(Math.floor((elapsedTime / 1000) % 60)).padStart(2, "0");
     // const milliseconds = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, "0");
 
-    return ` ${hours}:   ${min}:    ${sec}: ${milliSeconds} `;
+    return ` ${hours}:${min}:${sec}:${milliSeconds} `;
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
       <div>
         <h1 className="fs-1 text-center">Stop Watch</h1>
         <br />
       </div>
 
       <section className="  col-sm-12 d-flex justify-content-center m-1 p-1 ">
-        <div className="border-3 border border-warning col-sm-3  rounded p-3 ">
+        <div className="border-1 border border-warning col-sm-3  rounded p-3 shadow">
           <p className=" text-center fs-1">{formatTime()}</p>
           <div className="d-flex justify-content-center gap-1 ">
             <button onClick={start} className="btn btn-success btn-sm m-1 p-2">

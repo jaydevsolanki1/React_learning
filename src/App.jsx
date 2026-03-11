@@ -22,6 +22,7 @@ import Clock from "./Component/DigitalClock/clock";
 import UseContext from "./Component/UseContext/UseContext";
 import UserRef from "./Component/UseRef/UserRef";
 import DigitalStopWatch from "./Component/StopWatch/DigitalStopWatch";
+import AddLapCode from "./Component/StopWatch/AddLapCode";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -58,6 +59,7 @@ function App() {
       <UseContext mode={mode} />
       <UserRef mode={mode} />
       <DigitalStopWatch mode={mode} />
+      <AddLapCode mode={mode} />
       <Fotter mode={mode} />
     </>
   );
