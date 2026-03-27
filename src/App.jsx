@@ -23,6 +23,11 @@ import UseContext from "./Component/UseContext/UseContext";
 import UserRef from "./Component/UseRef/UserRef";
 import DigitalStopWatch from "./Component/StopWatch/DigitalStopWatch";
 import AddLapCode from "./Component/StopWatch/AddLapCode";
+import Routing from "./Component/LearnRout/routing";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Component/LearnRout/Home";
+import About from "./Component/LearnRout/About";
+import Contact from "./Component/LearnRout/Contact";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -60,6 +65,14 @@ function App() {
       <UserRef mode={mode} />
       <DigitalStopWatch mode={mode} />
       <AddLapCode mode={mode} />
+      <Routing mode={mode} />
+      <routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </routes>
       <Fotter mode={mode} />
     </>
   );
