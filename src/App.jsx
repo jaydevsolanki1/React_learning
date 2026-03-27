@@ -29,6 +29,7 @@ import Home from "./Component/LearnRout/Home";
 import About from "./Component/LearnRout/About";
 import Contact from "./Component/LearnRout/Contact";
 import Api from "./Component/ApiIntegration/Api";
+import AxiosReplaceFetch from "./Component/Axious/AxiosReplaceFetch";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -75,6 +76,7 @@ function App() {
       </Routes>
 
       <Api mode={mode} />
+      <AxiosReplaceFetch mode={mode} />
       <Fotter mode={mode} />
     </>
   );
