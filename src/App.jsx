@@ -28,6 +28,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Component/LearnRout/Home";
 import About from "./Component/LearnRout/About";
 import Contact from "./Component/LearnRout/Contact";
+import Api from "./Component/ApiIntegration/Api";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -66,13 +67,14 @@ function App() {
       <DigitalStopWatch mode={mode} />
       <AddLapCode mode={mode} />
       <Routing mode={mode} />
-      <routes>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </routes>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      <Api mode={mode} />
       <Fotter mode={mode} />
     </>
   );
