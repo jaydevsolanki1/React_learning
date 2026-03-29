@@ -30,6 +30,7 @@ import About from "./Component/LearnRout/About";
 import Contact from "./Component/LearnRout/Contact";
 import Api from "./Component/ApiIntegration/Api";
 import AxiosReplaceFetch from "./Component/Axious/AxiosReplaceFetch";
+import CustomHooks from "./Component/CustomHooks/CustomHooks";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -77,10 +78,75 @@ function App() {
 
       <Api mode={mode} />
       <AxiosReplaceFetch mode={mode} />
+      <CustomHooks mode={mode} />
       <Fotter mode={mode} />
     </>
   );
 }
 
 export default App;
-// Cheack Git Hub code cheack when code is another source like another pc to this pc run.
+//! Check Git Hub code check when code is another source like another pc to this pc run.
+
+//! Context Api in Theme in dark and light theme use
+//  📁 Proper Structure
+// src/
+//  ├── context/
+//  │    └── ThemeContext.js
+//  ├── components/
+//  │    └── Header.jsx
+//  ├── App.jsx
+
+// -----------------------------------------
+// 1️⃣ Create Context
+// -----------------------------------------
+// src/context/ThemeContext.js
+
+// import { createContext } from "react";
+
+// const ThemeContext = createContext();
+
+// export default ThemeContext;
+
+// -----------------------------------------
+// 2️⃣ Provide Context (Global)
+// App.jsx
+// -----------------------------------------
+
+// import React, { useState } from "react";
+// import ThemeContext from "./context/ThemeContext";
+// import Header from "./components/Header";
+
+// function App() {
+//   const [mode, setMode] = useState("light");
+
+//   return (
+//     <ThemeContext.Provider value={{ mode, setMode }}>
+//       <Header />
+//     </ThemeContext.Provider>
+//   );
+// }
+
+// export default App;
+
+// -----------------------------------------
+// 3️⃣ Use Context in Component
+// Header.jsx
+// -----------------------------------------
+
+// import React, { useContext } from "react";
+// import ThemeContext from "../context/ThemeContext";
+
+// function Header() {
+//   const { mode, setMode } = useContext(ThemeContext);
+
+//   return (
+//     <div>
+//       <h1>Mode: {mode}</h1>
+//       <button onClick={() => setMode(mode === "light" ? "dark" : "light")}>
+//         Toggle Mode
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default Header;
