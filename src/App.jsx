@@ -32,6 +32,7 @@ import Api from "./Component/ApiIntegration/Api";
 import AxiosReplaceFetch from "./Component/Axious/AxiosReplaceFetch";
 import CustomHooks from "./Component/CustomHooks/CustomHooks";
 import Structure from "./Component/FolderStructure/Structure";
+import AsyncAwait from "./Component/AsyncAwait.jsx/AsyncAwait";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -80,7 +81,8 @@ function App() {
       <Api mode={mode} />
       <AxiosReplaceFetch mode={mode} />
       <CustomHooks mode={mode} />
-      <Structure />
+      <Structure mode={mode} />
+      <AsyncAwait mode={mode} />
       <Fotter mode={mode} />
     </>
   );
