@@ -136,7 +136,7 @@ function OnChange() {
                       />
                       {pay}
                     </label>
-                  )
+                  ),
                 )}
               </div>
               <br />
@@ -163,3 +163,233 @@ function OnChange() {
 }
 
 export default OnChange;
+
+//! Advanced Code
+
+// import React, { useState } from "react";
+// import { jsPDF } from "jspdf";
+
+// function OrderFormAdvanced() {
+//   const [form, setForm] = useState({
+//     name: "Guest",
+//     product: "Custom Order",
+//     quantity: 1,
+//     comment: "",
+//     city: "",
+//     payment: "",
+//   });
+
+//   // ✅ Single handler for all inputs
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+
+//     setForm((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+//   };
+
+//   // ✅ Submit
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     const doc = new jsPDF();
+
+//     doc.setFontSize(18);
+//     doc.text("INVOICE", 90, 20);
+
+//     doc.setFontSize(12);
+//     doc.text(`Date: ${new Date().toLocaleDateString()}`, 140, 30);
+
+//     doc.setFontSize(14);
+//     doc.text("Customer Details:", 20, 40);
+//     doc.setFontSize(12);
+//     doc.text(`Name: ${form.name}`, 20, 48);
+//     doc.text(`City: ${form.city}`, 20, 56);
+//     doc.text(`Payment Method: ${form.payment}`, 20, 64);
+
+//     doc.setFontSize(14);
+//     doc.text("Order Details:", 20, 80);
+//     doc.setFontSize(12);
+//     doc.text(`Product: ${form.product}`, 20, 88);
+//     doc.text(`Quantity: ${form.quantity}`, 20, 96);
+//     doc.text(`Comments: ${form.comment || "-"}`, 20, 104);
+
+//     const pricePerItem = 100;
+//     const total = pricePerItem * Number(form.quantity);
+
+//     doc.text(`Price per: INR ${pricePerItem}`, 20, 112);
+//     doc.text(`Total: INR ${total}`, 20, 120);
+
+//     doc.line(20, 124, 180, 124);
+//     doc.setFontSize(10);
+//     doc.text("Thank you for your order!", 20, 132);
+
+//     doc.save("invoice.pdf");
+//   };
+
+//   return (
+//     <div className="container">
+//       <h1 className="text-center">Advanced Form</h1>
+
+//       <div className="p-3 d-flex justify-content-center">
+//         <div className="border p-4 col-md-8 rounded-4">
+
+//           <form onSubmit={handleSubmit}>
+//             <h3 className="text-center">Order</h3>
+//             <hr />
+
+//             {/* Name */}
+//             <input
+//               className="w-100 mb-2"
+//               type="text"
+//               name="name"
+//               value={form.name}
+//               onChange={handleChange}
+//               placeholder="Enter Name"
+//               required
+//             />
+//             <p>Name: {form.name}</p>
+
+//             {/* Product */}
+//             <input
+//               className="w-100 mb-2"
+//               type="text"
+//               name="product"
+//               value={form.product}
+//               onChange={handleChange}
+//               placeholder="Product"
+//               required
+//             />
+//             <p>Product: {form.product}</p>
+
+//             {/* Quantity */}
+//             <input
+//               className="w-100 mb-2"
+//               type="number"
+//               name="quantity"
+//               value={form.quantity}
+//               onChange={handleChange}
+//               min={1}
+//               max={10}
+//               required
+//             />
+//             <p>Quantity: {form.quantity}</p>
+
+//             {/* Comment */}
+//             <textarea
+//               className="w-100 mb-2"
+//               name="comment"
+//               value={form.comment}
+//               onChange={handleChange}
+//               placeholder="Comment..."
+//             />
+//             <p>Comment: {form.comment}</p>
+
+//             {/* City */}
+//             <select
+//               className="w-50 mb-2"
+//               name="city"
+//               value={form.city}
+//               onChange={handleChange}
+//               required
+//             >
+//               <option value="">Select City</option>
+//               <option value="Ahmedabad">Ahmedabad</option>
+//               <option value="Rajkot">Rajkot</option>
+//               <option value="Junagadh">Junagadh</option>
+//             </select>
+//             <p>City: {form.city}</p>
+
+//             {/* Payment */}
+//             <div className="mb-2">
+//               <span>Payment:</span>
+//               {["MASTER-CARD", "GOOGLE WALLET", "CREDIT-CARD", "PAYPAL"].map(
+//                 (pay) => (
+//                   <label key={pay} className="mx-2">
+//                     <input
+//                       type="radio"
+//                       name="payment"
+//                       value={pay}
+//                       checked={form.payment === pay}
+//                       onChange={handleChange}
+//                       required
+//                     />
+//                     {pay}
+//                   </label>
+//                 )
+//               )}
+//             </div>
+
+//             <p>Payment: {form.payment}</p>
+
+//             <div className="text-center mt-3">
+//               <button className="btn btn-primary">
+//                 Submit & Generate PDF
+//               </button>
+//             </div>
+//           </form>
+
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default OrderFormAdvanced;
+
+//! 2nd example but Powerfully
+
+// import React, { useState } from "react";
+
+// function Login() {
+//   const [form, setForm] = useState({
+//     email: "",
+//     password: "",
+//   });
+
+//   // ✅ handle input change
+//   const handleChange = (e) => {
+//     setForm({
+//       ...form,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+
+//   // ✅ handle submit
+//   const handleSubmit = (e) => {
+//     e.preventDefault(); // prevent page reload
+
+//     console.log("Form Data:", form);
+//   };
+
+//   return (
+//     <div className="border p-3 m-3">
+//       <h2>Login Form</h2>
+
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="email"
+//           name="email"
+//           placeholder="Enter Email"
+//           value={form.email}
+//           onChange={handleChange}
+//         />
+//         <br /><br />
+
+//         <input
+//           type="password"
+//           name="password"
+//           placeholder="Enter Password"
+//           value={form.password}
+//           onChange={handleChange}
+//         />
+//         <br /><br />
+
+//         <button type="submit">Login</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default Login;

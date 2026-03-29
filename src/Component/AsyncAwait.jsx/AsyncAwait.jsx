@@ -26,6 +26,9 @@ function AsyncAwait() {
             </p>
           ))}
         </div>
+        <h2 className="text-center text-danger">
+          Async / Await is replace fetch{" "}
+        </h2>
       </div>
       <br />
       <hr />
