@@ -33,6 +33,8 @@ import AxiosReplaceFetch from "./Component/Axious/AxiosReplaceFetch";
 import CustomHooks from "./Component/CustomHooks/CustomHooks";
 import Structure from "./Component/FolderStructure/Structure";
 import AsyncAwait from "./Component/AsyncAwait.jsx/AsyncAwait";
+import ErrorBoundary from "./Component/ErrorBoundary/ErrorBoundary";
+import Test from "./Test";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -83,6 +85,8 @@ function App() {
       <CustomHooks mode={mode} />
       <Structure mode={mode} />
       <AsyncAwait mode={mode} />
+      <ErrorBoundary mode={mode} />
+      <Test mode={mode} />
       <Fotter mode={mode} />
     </>
   );
