@@ -31,6 +31,7 @@ import Contact from "./Component/LearnRout/Contact";
 import Api from "./Component/ApiIntegration/Api";
 import AxiosReplaceFetch from "./Component/Axious/AxiosReplaceFetch";
 import CustomHooks from "./Component/CustomHooks/CustomHooks";
+import Structure from "./Component/FolderStructure/Structure";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -79,6 +80,7 @@ function App() {
       <Api mode={mode} />
       <AxiosReplaceFetch mode={mode} />
       <CustomHooks mode={mode} />
+      <Structure />
       <Fotter mode={mode} />
     </>
   );
