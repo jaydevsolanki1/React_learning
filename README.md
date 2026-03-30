@@ -1,12 +1,93 @@
-# React + Vite
+# 🚀 React Learning Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 📚 A structured and practical React learning repository covering core concepts, hooks, API handling, routing, performance optimization, and error handling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 Topics Covered
 
-## Expanding the ESLint configuration
+### 🟢 React Fundamentals
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- JSX & Functional Components
+- Props & State (`useState`)
+- Event Handling
+- Conditional Rendering
+- Lists & Keys
+- Bootstrap Styling
+
+---
+
+### 🔵 React Hooks
+
+- `useState`
+- `useEffect`
+- Custom Hooks
+- Performance Hooks:
+  - `useMemo`
+  - `useCallback`
+
+---
+
+### 🟡 Routing
+
+- React Router
+- Navigation between pages
+- Multi-page application structure
+
+---
+
+### 🔴 API Integration
+
+- Fetch API
+- Axios
+- Loading & Error Handling
+
+---
+
+### 🟣 Error Handling
+
+- ErrorBoundary
+- Fallback UI for crashes
+
+---
+
+### ⚡ Performance Optimization
+
+- `React.memo`
+- `useMemo`
+- `useCallback`
+- Avoid unnecessary re-renders
+
+---
+
+## 🧠 Folder Structure
+
+| 📁 Folder  | 📌 Purpose              |
+| ---------- | ----------------------- |
+| components | Reusable UI components  |
+| pages      | Full page screens       |
+| hooks      | Custom reusable logic   |
+| services   | API calls               |
+| context    | Global state management |
+
+---
+
+## ⚙️ Features
+
+- 🔄 API data fetching
+- ⏳ Loading & error states
+- ♻️ Reusable custom hooks
+- 🛡️ ErrorBoundary protection
+- ⚡ Performance optimization
+- 🎨 Clean UI using Bootstrap
+
+---
+
+## 📌 What I Learned
+
+- How React renders and updates UI
+- State & props management
+- API handling with error control
+- Custom hooks for reusable logic
+- Performance optimization techniques
+- Preventing crashes using ErrorBoundary
