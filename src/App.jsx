@@ -35,6 +35,7 @@ import Structure from "./Component/FolderStructure/Structure";
 import AsyncAwait from "./Component/AsyncAwait.jsx/AsyncAwait";
 import ErrorBoundary from "./Component/ErrorBoundary/ErrorBoundary";
 import Test from "./Test";
+import PerformanceOptimization from "./Component/Performance Optimization/PerformanceOptimization";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -87,6 +88,8 @@ function App() {
       <AsyncAwait mode={mode} />
       <ErrorBoundary mode={mode} />
       <Test mode={mode} />
+      <PerformanceOptimization mode={mode} />
+
       <Fotter mode={mode} />
     </>
   );
