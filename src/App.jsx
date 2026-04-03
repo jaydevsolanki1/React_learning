@@ -36,6 +36,7 @@ import AsyncAwait from "./Component/AsyncAwait.jsx/AsyncAwait";
 import ErrorBoundary from "./Component/ErrorBoundary/ErrorBoundary";
 import Test from "./Test";
 import PerformanceOptimization from "./Component/Performance Optimization/PerformanceOptimization";
+import UseReducer from "./Component/UseReducer/UseReducer";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -89,7 +90,7 @@ function App() {
       <ErrorBoundary mode={mode} />
       <Test mode={mode} />
       <PerformanceOptimization mode={mode} />
-
+      <UseReducer mode={mode} />
       <Fotter mode={mode} />
     </>
   );
