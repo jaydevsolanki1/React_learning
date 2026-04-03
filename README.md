@@ -21,6 +21,9 @@
 
 - `useState`
 - `useEffect`
+- `useRef`
+- `useReducer`
+- `useContext`
 - Custom Hooks
 - Performance Hooks:
   - `useMemo`
