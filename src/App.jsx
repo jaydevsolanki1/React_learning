@@ -18,7 +18,7 @@ import ArrayOfObjectState from "./Component/ArrayWithObject/ArrayOfObjectState";
 import ArrayOfObjectState2 from "./Component/ArrayWithObject/AdvancedCode";
 import ToDoList2 from "./Component/TodoList/ToDoList2";
 import Use_Effect from "./Component/UseEffect/Use_Effect";
-import Clock from "./Component/DigitalClock/clock";
+import Clock from "./Component/DigitalClock/Clock";
 import UseContext from "./Component/UseContext/UseContext";
 import UserRef from "./Component/UseRef/UserRef";
 import DigitalStopWatch from "./Component/StopWatch/DigitalStopWatch";
@@ -34,7 +34,7 @@ import CustomHooks from "./Component/CustomHooks/CustomHooks";
 import Structure from "./Component/FolderStructure/Structure";
 import AsyncAwait from "./Component/AsyncAwait.jsx/AsyncAwait";
 import ErrorBoundary from "./Component/ErrorBoundary/ErrorBoundary";
-import Test from "./Test";
+import Test from "./Component/ErrorBoundary/Test";
 import PerformanceOptimization from "./Component/Performance Optimization/PerformanceOptimization";
 import UseReducer from "./Component/UseReducer/UseReducer";
 
