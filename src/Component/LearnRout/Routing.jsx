@@ -9,8 +9,8 @@ function Routing() {
 
       <h1 className="text-center">Routing</h1>
       <nav className=" d-flex gap-5">
-        <Link to="/">Home</Link> | <Link to="/about">About</Link> |{" "}
-        <Link to="/contact">Contact</Link>
+        <Link to="/Home">Home</Link> | <Link to="/About">About</Link> |{" "}
+        <Link to="/Contact">Contact</Link>
       </nav>
       <br />
       <hr />
