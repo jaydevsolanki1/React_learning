@@ -1,12 +1,44 @@
-.clock-section img {
-  filter: blur(5px); /* Background blur */
+.clock-container {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.clock-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
 }
 
 .clock-text {
-  font-size: 3rem; /* Large font */
   color: white;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  padding: 1rem 2rem;
-  border-radius: 0.75rem;
-  z-index: 10;
+  font-weight: bold;
+  font-family: monospace;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  padding: 10px;
+  font-size: clamp(1.5rem, 5vw, 4rem);
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .clock-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 577px) and (max-width: 991px) {
+  .clock-text {
+    font-size: 2.8rem;
+  }
+}
+
+/* Laptop/Desktop */
+@media (min-width: 992px) {
+  .clock-text {
+    font-size: 4rem;
+  }
 }

@@ -17,32 +17,32 @@ function Clock() {
     let hour = time.getHours();
     const min = time.getMinutes();
     const sec = time.getSeconds();
+
     const meridiem = hour >= 12 ? "PM" : "AM";
+
     hour = hour % 12 || 12;
-    return `${pedZero(hour)} : ${pedZero(min)} : ${pedZero(sec)} : ${pedZero(meridiem)}`;
+
+    return `${padZero(hour)} : ${padZero(min)} : ${padZero(sec)} ${meridiem}`;
   }
-  function pedZero(number) {
+
+  function padZero(number) {
     return (number < 10 ? "0" : "") + number;
   }
-
   return (
-    <div className="container-fluid my-4">
-      <section className="mb-4">
-        <h1 className="fs-1 text-center">Digital Clock</h1>
-      </section>
+    <div className="container py-4">
+      <h1 className="text-center mb-4 fw-bold">Digital Clock</h1>
 
-      <section className="position-relative text-center clock-section">
+      <div className="clock-container position-relative mx-auto">
         <img
           src="w.jpeg"
-          className="img-fluid w-100 rounded"
-          id="ok"
-          alt="Background"
+          alt="Clock Background"
+          className="img-fluid rounded shadow w-100"
         />
 
-        <div className="position-absolute top-50 start-50 translate-middle clock-text ">
-          <span>{formatTime()}</span>
+        <div className="clock-text position-absolute top-50 start-50 translate-middle text-center">
+          {formatTime()}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

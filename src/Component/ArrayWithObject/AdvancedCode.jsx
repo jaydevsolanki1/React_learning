@@ -13,29 +13,36 @@ function ArrayOfObjectState2() {
 
   function handleChange(e) {
     const { name, value } = e.target;
+
     setForm((prev) => ({
       ...prev,
       [name]: name === "year" ? Number(value) : value,
     }));
   }
 
-  function handleAddStudent() {
-    if (!name || !year || !course) {
-      alert("Please fill all fields");
+  function handleAddStudent(e) {
+    e.preventDefault();
+
+    if (!name.trim() || !year || !course.trim()) {
+      alert("Please fill all fields.");
       return;
     }
 
     const newStudent = {
       id: crypto.randomUUID(),
-      name,
+      name: name.trim(),
       year,
-      course,
+      course: course.trim(),
       currentYear: new Date().getFullYear(),
     };
 
     setStudents((prev) => [...prev, newStudent]);
 
-    setForm({ name: "", year: "", course: "" });
+    setForm({
+      name: "",
+      year: "",
+      course: "",
+    });
   }
 
   function handleRemoveStudent(id) {
@@ -43,60 +50,101 @@ function ArrayOfObjectState2() {
   }
 
   return (
-    <div>
-      <div className="container">
-        <h2>Array of Object with State (Advanced Code)</h2>
+    <>
+      <div className="container py-4">
+        <h2 className="text-center mb-4">
+          Array of Object with State (Advanced)
+        </h2>
 
-        <div className="d-flex gap-2">
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={handleChange}
-          />
+        {/* Form */}
+        <form onSubmit={handleAddStudent}>
+          <div className="row g-3 align-items-end">
+            <div className="col-12 col-md-4">
+              <label className="form-label">Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                placeholder="Enter Name"
+                value={name}
+                onChange={handleChange}
+              />
+            </div>
 
-          <input
-            type="number"
-            name="year"
-            placeholder="DOB Year"
-            value={year}
-            onChange={handleChange}
-          />
+            <div className="col-12 col-md-3">
+              <label className="form-label">DOB Year</label>
+              <input
+                type="number"
+                className="form-control"
+                name="year"
+                placeholder="Enter DOB Year"
+                value={year}
+                onChange={handleChange}
+              />
+            </div>
 
-          <input
-            type="text"
-            name="course"
-            placeholder="Course"
-            value={course}
-            onChange={handleChange}
-          />
+            <div className="col-12 col-md-3">
+              <label className="form-label">Course</label>
+              <input
+                type="text"
+                className="form-control"
+                name="course"
+                placeholder="Enter Course"
+                value={course}
+                onChange={handleChange}
+              />
+            </div>
 
-          <button onClick={handleAddStudent}>Add</button>
-        </div>
-
-        <hr />
-
-        <h3>Student List</h3>
-
-        <ul>
-          {students.map((student) => (
-            <li key={student.id}>
-              Name: {student.name} | DOB: {student.year} | Course:{" "}
-              {student.course} | Year: {student.currentYear}
-              <button
-                style={{ marginLeft: "10px" }}
-                onClick={() => handleRemoveStudent(student.id)}
-              >
-                ❌
+            <div className="col-12 col-md-2 d-grid">
+              <button type="submit" className="btn btn-success">
+                Add Student
               </button>
-            </li>
-          ))}
-        </ul>
+            </div>
+          </div>
+        </form>
+
+        <hr className="my-4" />
+
+        <h3 className="mb-3">Student List</h3>
+
+        {students.length === 0 ? (
+          <div className="alert alert-secondary">No students added yet.</div>
+        ) : (
+          <div className="list-group">
+            {students.map((student) => (
+              <div key={student.id} className="list-group-item">
+                <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3">
+                  <div>
+                    <h5 className="mb-1">{student.name}</h5>
+
+                    <p className="mb-1">
+                      <strong>DOB Year:</strong> {student.year}
+                    </p>
+
+                    <p className="mb-1">
+                      <strong>Course:</strong> {student.course}
+                    </p>
+
+                    <p className="mb-0">
+                      <strong>Current Year:</strong> {student.currentYear}
+                    </p>
+                  </div>
+
+                  <button
+                    className="btn btn-outline-danger btn-sm"
+                    onClick={() => handleRemoveStudent(student.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      <br />
+
       <hr />
-    </div>
+    </>
   );
 }
 

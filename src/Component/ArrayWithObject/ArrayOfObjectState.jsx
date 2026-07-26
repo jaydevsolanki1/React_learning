@@ -6,122 +6,155 @@ function ArrayOfObjectState() {
   const [year, setYear] = useState("");
   const [course, setCourse] = useState("");
 
-  function handeladdStudent() {
-    if (!name || !year || !course) return;
-    //This is why use Becuse filed is missing so please file up after show the currect
+  function handleAddStudent(event) {
+    event.preventDefault();
+
+    if (!name.trim() || !year || !course.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     const newStudent = {
       id: crypto.randomUUID(),
-      name: name,
-      year: year,
-      course: course,
+      name: name.trim(),
+      year: Number(year),
+      course: course.trim(),
       currentYear: new Date().getFullYear(),
     };
-    setStudents((s) => [...s, newStudent]);
+
+    setStudents((prevStudents) => [...prevStudents, newStudent]);
 
     setName("");
-
-    setCourse("");
-
     setYear("");
+    setCourse("");
   }
 
-  function handelremoverStudent(id) {
-    setStudents((prev) => prev.filter((student) => student.id !== id));
-  }
-
-  function handelNameStudent(event) {
-    setName(event.target.value);
-  }
-  function handelYearStudent(event) {
-    setYear(Number(event.target.value));
-  }
-  function handelCourseStudent(event) {
-    setCourse(event.target.value);
+  function handleRemoveStudent(id) {
+    setStudents((prevStudents) =>
+      prevStudents.filter((student) => student.id !== id),
+    );
   }
 
   return (
-    <div>
-      <div className="container ">
-        <h1 className="text-center">Array of Object with State</h1>
-        <br />
-      </div>
-      <div className="container">
-        <h3>List Of Student Object</h3>
-        <div className="d-flex gap-3 ">
-          <input
-            type="text"
-            name="name"
-            id="sName"
-            placeholder="Enter Your Name "
-            className="border rounded"
-            value={name}
-            onChange={handelNameStudent}
-            required
-          />
-          <input
-            type="number"
-            name="year"
-            id="sYear"
-            placeholder="Enter Your DOB Year"
-            className="border rounded"
-            value={year}
-            onChange={handelYearStudent}
-            required
-          />
-          <input
-            type="course"
-            name="course"
-            id="sCourse"
-            placeholder="Enter Your Course"
-            className="border rounded"
-            value={course}
-            onChange={handelCourseStudent}
-            required
-          />
-          <button
-            className="btn btn-success btn-rounded"
-            onClick={handeladdStudent}
-          >
-            Add Student
-          </button>
+    <>
+      <div className="container py-4">
+        <h1 className="text-center mb-4">Array of Object with State</h1>
+
+        <h3 className="mb-3">Add Student</h3>
+
+        <form onSubmit={handleAddStudent}>
+          <div className="row g-3">
+            <div className="col-12 col-md-4">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12 col-md-3">
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Enter DOB Year"
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12 col-md-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Course"
+                value={course}
+                onChange={(e) => setCourse(e.target.value)}
+              />
+            </div>
+
+            <div className="col-12 col-md-2 d-grid">
+              <button type="submit" className="btn btn-success">
+                Add Student
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <hr className="my-4" />
+
+        <div className="row text-center g-3">
+          <div className="col-6 col-md-3">
+            <div className="border rounded p-3">
+              <strong>Name</strong>
+              <br />
+              {name || "-"}
+            </div>
+          </div>
+
+          <div className="col-6 col-md-3">
+            <div className="border rounded p-3">
+              <strong>DOB Year</strong>
+              <br />
+              {year || "-"}
+            </div>
+          </div>
+
+          <div className="col-6 col-md-3">
+            <div className="border rounded p-3">
+              <strong>Course</strong>
+              <br />
+              {course || "-"}
+            </div>
+          </div>
+
+          <div className="col-6 col-md-3">
+            <div className="border rounded p-3">
+              <strong>Current Year</strong>
+              <br />
+              {new Date().getFullYear()}
+            </div>
+          </div>
         </div>
-        <br />
-        <hr />
-        <ul className="d-flex justify-content-start gap-5 list-unstyled fs-5">
-          <li>
-            <span>Name : {name} </span>
-          </li>
-          <li>
-            <span>DOB Year : {year}</span>
-          </li>
-          <li>
-            <span>Course : {course}</span>
-          </li>
-          <li>
-            {/* <span>CurrentYear : {students.currentYear}</span> NOT WORKING*/}
-            CurrentYear :{" "}
-            {students.length > 0 && students[students.length - 1].currentYear}
-          </li>
-        </ul>
-        <hr />
+
+        <hr className="my-4" />
+
         <h3>Student List</h3>
-        <ul>
-          {students.map((student, index) => (
-            <li
-              key={student.id}
-              onClick={() => handelremoverStudent(student.id)}
-            >
-              {/* // <li key={index}> */}
-              Name: {student.name} | DOB: {student.year} | Course:{" "}
-              {student.course} | Year: {student.currentYear}
-            </li>
-          ))}
-        </ul>
-      
+
+        {students.length === 0 ? (
+          <p className="text-muted">No students added yet.</p>
+        ) : (
+          <ul className="list-group">
+            {students.map((student) => (
+              <li
+                key={student.id}
+                className="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3"
+              >
+                <div>
+                  <strong>{student.name}</strong>
+                  <br />
+                  DOB: {student.year}
+                  <br />
+                  Course: {student.course}
+                  <br />
+                  Current Year: {student.currentYear}
+                </div>
+
+                <button
+                  className="btn btn-outline-danger btn-sm"
+                  onClick={() => handleRemoveStudent(student.id)}
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      <br />
+
       <hr />
-    </div>
+    </>
   );
 }
 

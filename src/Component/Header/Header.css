@@ -1,31 +1,191 @@
-/* Force override Bootstrap's default placeholder styles */
-input.input-dark::placeholder {
-  color: #ccc !important;
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  z-index: 1030;
 }
 
-input.input-light::placeholder {
+/* ==========================================
+   LOGO
+========================================== */
+
+.navbar-brand img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: rotate(8deg) scale(1.08);
+}
+
+.navbar-brand span {
+  white-space: nowrap;
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.search-wrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-wrapper .form-control {
+  border-radius: 8px 0 0 8px;
+  height: 45px;
+}
+
+.search-wrapper .btn {
+  border-radius: 0 8px 8px 0;
+  min-width: 55px;
+}
+
+/* ==========================================
+   PLACEHOLDER
+========================================== */
+
+.input-light::placeholder {
   color: #6c757d !important;
+  opacity: 1;
 }
 
-
-/* Toggle icon background for dark and light mode */
-.custom-toggler-dark {
-  background-color: #212529 !important;
-  border: 1px solid #fff !important;
+.input-dark::placeholder {
+  color: #ffffff !important;
+  opacity: 0.75;
 }
 
-.custom-toggler-light {
-  background-color: #f8f9fa !important;
-  border: 1px solid #000 !important;
+/* ==========================================
+   SEARCH SUGGESTIONS
+========================================== */
+
+.suggestion-box {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
 }
 
-/* Optional: make the icon (lines) visible in dark mode */
-.navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.suggestion-item {
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.suggestion-item:hover {
+  background: #0d6efd;
+  color: white;
 }
 
+/* ==========================================
+   OFFCANVAS
+========================================== */
 
+.offcanvas {
+  width: 300px;
+}
+
+.offcanvas .nav-link {
+  transition: all 0.25s ease;
+}
+
+.offcanvas .nav-link:hover {
+  background: #0d6efd;
+  color: white !important;
+  transform: translateX(6px);
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn {
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 575px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .navbar-brand span {
+    font-size: 1.25rem !important;
+  }
+
+  .navbar-brand img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .search-wrapper {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search-wrapper .form-control {
+    font-size: 14px;
+  }
+
+  .offcanvas {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .navbar-brand span {
+    font-size: 1.45rem !important;
+  }
+
+  .search-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 15px;
+  }
+
+  .offcanvas {
+    width: 350px;
+  }
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 992px) {
+  .search-wrapper {
+    width: 500px;
+  }
+
+  .navbar-brand span {
+    font-size: 1.7rem !important;
+  }
+}
+
+/* ==========================================
+   LARGE DESKTOP
+========================================== */
+
+@media (min-width: 1400px) {
+  .search-wrapper {
+    width: 600px;
+  }
+}
